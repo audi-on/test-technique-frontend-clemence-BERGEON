@@ -9,13 +9,14 @@ export const getLongData = async (): Promise<Episode[]> => {
   return [...episodes, ...episodes, ...episodes].map((e, index) => ({
     ...e,
     id: index.toString(),
+    cleanTitle: e.title,
   }));
 };
 
 export const getShortData = async (): Promise<Episode[]> => {
   return episodes
     .slice(0, 30)
-    .map((e, index) => ({ ...e, id: index.toString() }));
+    .map((e, index) => ({ ...e, id: index.toString(), cleanTitle: e.title }));
 };
 
 export const getPendingData = async (): Promise<Episode[]> => {
